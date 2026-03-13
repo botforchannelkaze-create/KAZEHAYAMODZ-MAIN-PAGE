@@ -121,35 +121,6 @@ background:#ff4444;
 color:#fff;
 }
 
-/* VIP button */
-.vip-btn{
-display:flex;
-align-items:center;
-justify-content:center;
-width:100%;
-padding:14px;
-margin-top:6px;
-font-size:15px;
-font-weight:bold;
-border-radius:12px;
-text-decoration:none;
-background:linear-gradient(45deg,#ffd700,#ff9f00);
-color:black;
-box-shadow:0 0 12px rgba(255,215,0,0.5);
-transition:0.2s;
-}
-
-.vip-btn:active{
-transform:scale(0.97);
-}
-
-.vip-text{
-font-size:13px; /* Pinalaki ang font */
-color:#eee; /* Mas maliwanag na kulay */
-margin-top:8px;
-font-weight: 500;
-}
-
 /* FOOTER UPGRADED (Para mas visible) */
 footer{
 width:100%;
@@ -158,17 +129,41 @@ margin:0 auto;
 padding-bottom: 10px;
 }
 
+/* GENERATOR INFO OVERLAY UPGRADED */
 .generator-info{
-font-size:14px; /* Pinalaki mula 12px */
+position: fixed; /* Ginawang parang overlay */
+top: 50%; /* Center vertically */
+left: 50%; /* Center horizontally */
+transform: translate(-50%, -50%); /* Adjust to true center */
+background: rgba(17, 24, 38, 0.9); /* Semi-transparent background */
+padding: 30px;
+border-radius: 20px;
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Shadow para lumutang */
+z-index: 100; /* Siguraduhing nasa ibabaw */
+font-size:16px; /* Pinalaki mula 12px */
 color:#fff; /* Pinalitan ang #888 ng White para kita sa madilim */
 line-height:1.6;
-margin-bottom:20px;
-border-top:1px solid rgba(255,255,255,0.1);
-padding-top:20px;
+display: none; /* Hide initial */
+}
+
+.generator-info.active {
+    display: block; /* Show kapag active */
 }
 
 .generator-info b {
     color: #00ffd5; /* Highlight ang 12 hours */
+}
+
+.generator-info button.close-info {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .warning{
@@ -186,6 +181,29 @@ font-weight:bold;
 margin-top:15px;
 display:block;
 text-shadow: 0 0 5px rgba(0,255,213,0.5);
+cursor: pointer; /* Magmukhang clickable */
+}
+
+/* VIP button paliit and moved to bottom */
+.vip-btn-small{
+display:inline-flex; /* Paliitin at ilagay sa gitna */
+align-items:center;
+justify-content:center;
+padding:8px 15px; /* Paliitin ang padding */
+margin-top:10px;
+font-size:13px; /* Paliitin ang font */
+font-weight:bold;
+border-radius:10px;
+text-decoration:none;
+background:linear-gradient(45deg,#ffd700,#ff9f00);
+color:black;
+box-shadow:0 0 10px rgba(255,215,0,0.5);
+transition:0.2s;
+text-transform:uppercase;
+}
+
+.vip-btn-small:active{
+transform:scale(0.97);
 }
 
 </style>
@@ -214,34 +232,31 @@ text-shadow: 0 0 5px rgba(0,255,213,0.5);
 🎥 WATCH TUTORIAL
 </a>
 
-<a class="vip-btn" href="https://t.me/KAZEHAYAMODZ" target="_blank">
-⭐ BUY VIP KEY
-</a>
-
-<div class="vip-text">
-Unlimited access • No ads • Faster updates
-</div>
-
 </div>
 
 <footer>
-
-<div class="generator-info">
-Official Kaze free key generator.<br>
-Key duration: <b>12 hours</b>.<br>
-Generate a new key once your key expires.
-</div>
 
 <p class="warning">
 ⚠️ Please do not bypass the link system.
 </p>
 
-<span class="owner">
+<span class="owner" id="owner-link">
 Owner: @KAZEHAYAMODZ
 </span>
 
+<a class="vip-btn-small" href="https://t.me/KAZEHAYAMODZ" target="_blank">
+⭐ BUY VIP KEY
+</a>
+
 </footer>
 
+</div>
+
+<div class="generator-info" id="generator-info-overlay">
+<button class="close-info" id="close-info-overlay">&times;</button>
+Official Kaze free key generator.<br>
+Key duration: <b>12 hours</b>.<br>
+Generate a new key once your key expires.
 </div>
 
 <script>
@@ -254,6 +269,22 @@ history.pushState(null,null,location.href);
 window.onpopstate=function(){
 history.go(1);
 };
+
+/* ================
+SHOW GENERATOR INFO OVERLAY
+====================== */
+const ownerLink = document.getElementById('owner-link');
+const generatorInfoOverlay = document.getElementById('generator-info-overlay');
+const closeInfoOverlay = document.getElementById('close-info-overlay');
+
+ownerLink.addEventListener('click', () => {
+  generatorInfoOverlay.classList.add('active');
+});
+
+closeInfoOverlay.addEventListener('click', () => {
+  generatorInfoOverlay.classList.remove('active');
+});
+
 </script>
 
 </body>
