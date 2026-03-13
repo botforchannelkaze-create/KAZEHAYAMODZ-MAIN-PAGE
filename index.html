@@ -1,144 +1,142 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Kaze Key System</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Kaze Key System</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-<style>
-/* ===== FULL SCREEN BODY ===== */
-body{
-  margin:0;
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  background:#0b0f16;
-  font-family:sans-serif;
-  color:white;
-  text-align:center;
-}
+        body {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #0b0f16;
+            font-family: 'Segoe UI', sans-serif;
+            color: white;
+            overflow: hidden; /* Iwas scroll */
+        }
 
-/* ===== FULL SCREEN BOX WITH RAINBOW BORDER ===== */
-.box{
-  position:relative;
-  width:100%;
-  height:100%;
-  padding:60px 20px;
-  box-sizing:border-box;
-  border-radius:0px;
-  background:#111826;
-  overflow:hidden;
-}
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background: #111826;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Pantay na hati mula taas hanggang baba */
+            padding: 30px 20px;
+            text-align: center;
+        }
 
-.box::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
-  background:linear-gradient(
-    90deg,
-    red,
-    orange,
-    yellow,
-    lime,
-    cyan,
-    blue,
-    magenta,
-    red
-  );
-  background-size:400%;
-  z-index:-1;
-  animation:rainbow 6s linear infinite;
-}
+        /* Rainbow Line */
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, red, orange, yellow, lime, cyan, blue, magenta, red);
+            background-size: 400%;
+            animation: rainbow 6s linear infinite;
+        }
 
-@keyframes rainbow{
-  0%{background-position:0%}
-  100%{background-position:400%}
-}
+        @keyframes rainbow {
+            0% { background-position: 0% }
+            100% { background-position: 400% }
+        }
 
-/* ===== HEADINGS ===== */
-h1{
-  font-size:50px;
-  letter-spacing:2px;
-  margin-bottom:10px;
-}
+        /* Header Section */
+        header h1 {
+            font-size: clamp(24px, 7vw, 36px);
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
 
-p{
-  color:#aaa;
-  font-size:20px;
-}
+        header p {
+            color: #aaa;
+            font-size: 14px;
+        }
 
-/* ===== BUTTONS ===== */
-.btn{
-  display:block;
-  width:90%;
-  max-width:400px;
-  margin:20px auto;
-  padding:20px;
-  font-size:22px;
-  font-weight:bold;
-  border:none;
-  border-radius:14px;
-  cursor:pointer;
-  text-decoration:none;
-  transition:0.25s;
-}
+        /* Button Section */
+        .btn-group {
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto;
+        }
 
-.btn:hover{
-  transform:scale(1.06);
-}
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 16px;
+            margin-bottom: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: 0.2s;
+            text-transform: uppercase;
+        }
 
-.key{
-  background:#00ffd5;
-  color:black;
-  box-shadow:0 0 20px #00ffd5;
-}
+        .btn:active { transform: scale(0.98); }
 
-.telegram{
-  background:#229ED9;
-  color:white;
-  box-shadow:0 0 20px #229ED9;
-}
+        .key { background: #00ffd5; color: #000; box-shadow: 0 0 15px rgba(0, 255, 213, 0.3); }
+        .telegram { background: #229ED9; color: #fff; }
+        .tutorial { background: #ff4444; color: #fff; }
 
-.tutorial{
-  background:#ff4444;
-  color:white;
-  box-shadow:0 0 20px #ff4444;
-}
+        /* Footer Section */
+        footer {
+            max-width: 300px;
+            margin: 0 auto;
+        }
 
-.vip{
-  background:#ff9900;
-  color:white;
-  box-shadow:0 0 20px #ff9900;
-}
+        .warning {
+            font-size: 12px;
+            color: #ffcc00;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
 
-/* ===== MESSAGE ===== */
-.message{
-  margin-top:40px;
-  font-size:16px;
-  color:#999;
-  line-height:1.7;
-}
-
-.owner{
-  margin-top:30px;
-  font-size:16px;
-  color:#00ffd5;
-  font-weight:bold;
-  letter-spacing:1px;
-}
-
-</style>
+        .owner {
+            font-size: 13px;
+            color: #00ffd5;
+            font-weight: bold;
+            margin-top: 15px;
+            display: block;
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="box">
+    <div class="container">
+        <header>
+            <h1>KAZE KEY SYSTEM</h1>
+            <p>Free key generator for Kaze Loader</p>
+        </header>
 
-  <h1>KAZE KEY SYSTEM</h1>
+        <div class="btn-group">
+            <a class="btn key" href="https://gplinks.co/KAZE-DAILY_FREEKEY">🔑 GET FREE KEY</a>
+            <a class="btn telegram" href="https://t.me/KazeMainChannel">📢 JOIN TELEGRAM</a>
+            <a class="btn tutorial" href="https://t.me/KazeTutorial/26">🎥 WATCH TUTORIAL</a>
+        </div>
 
-  <p>Free key generator for Kaze Loader</p>
+        <footer>
+            <p class="warning">⚠️ Please do not bypass the link system. Each key supports the developer.</p>
+            <p style="font-size: 11px; color: #666;">If errors occur, refresh the main page.</p>
+            <span class="owner">Owner: @KAZEHAYAMODZ</span>
+        </footer>
+    </div>
 
-  <a class="btn key" href="https://gplinks.co/KAZE-DAILY_FREEKEY
+</body>
+</html>
