@@ -13,7 +13,7 @@ padding:0;
 }
 
 body{
-height: 100dvh; /* Dynamic viewport height para sa mobile */
+height: 100dvh;
 width:100vw;
 display:flex;
 justify-content:center;
@@ -37,7 +37,7 @@ padding:35px 20px;
 text-align:center;
 }
 
-/* rainbow line */
+/* rainbow line top */
 .container::before{
 content:"";
 position:absolute;
@@ -48,6 +48,7 @@ height:4px;
 background:linear-gradient(90deg,red,orange,yellow,lime,cyan,blue,magenta,red);
 background-size:400%;
 animation:rainbow 6s linear infinite;
+z-index: 10;
 }
 
 @keyframes rainbow{
@@ -55,30 +56,66 @@ animation:rainbow 6s linear infinite;
 100%{background-position:400%}
 }
 
-/* HEADER UPGRADED */
-header h1{
-font-size:clamp(22px, 6.5vw, 32px);
-letter-spacing:1px;
-margin-bottom:12px;
-text-transform:uppercase;
-color: #00ffd5; /* Main color */
-border: 2px solid #00ffd5; /* Border added */
-padding: 15px 10px;
-border-radius: 15px;
-display: inline-block;
-box-shadow: 0 0 15px rgba(0, 255, 213, 0.3); /* Glow added */
-background: rgba(0, 255, 213, 0.05);
+/* ==============================
+   HEADER WITH ROTATING RED BORDER
+   ============================== */
+header h1 {
+    font-size: clamp(20px, 6vw, 28px);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #fff;
+    position: relative;
+    padding: 15px 20px;
+    display: inline-block;
+    background: #111826; /* Match container background */
+    border-radius: 15px;
+    overflow: hidden; /* Para hindi lumabas yung umiikot na gradient */
+    z-index: 1;
 }
 
-header p{
-color:#fff; /* Ginawang puti para mas kita */
-font-size:14px;
-margin-top: 10px;
-font-weight: bold;
-letter-spacing: 0.5px;
+/* Ang umiikot na kulay pula */
+header h1::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        transparent, 
+        transparent, 
+        transparent, 
+        #ff0000 /* Red Light */
+    );
+    animation: rotate 2s linear infinite;
+    z-index: -2;
 }
 
-/* buttons */
+/* Inner cover para magmukhang border lang yung pula */
+header h1::after {
+    content: "";
+    position: absolute;
+    inset: 3px; /* Kapal ng border */
+    background: #111826;
+    border-radius: 12px;
+    z-index: -1;
+}
+
+header p {
+    color: #00ffd5; /* Cyan highlight para sa sub-text */
+    font-size: 13px;
+    margin-top: 15px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 5px rgba(0, 255, 213, 0.5);
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* buttons group */
 .btn-group{
 width:100%;
 max-width:320px;
@@ -90,7 +127,7 @@ display:flex;
 align-items:center;
 justify-content:center;
 width:100%;
-padding:18px; /* Nilakihan ng konti */
+padding:18px;
 margin-bottom:12px;
 font-size:16px;
 font-weight:bold;
@@ -121,89 +158,84 @@ background:#ff4444;
 color:#fff;
 }
 
-/* FOOTER UPGRADED (Para mas visible) */
+/* FOOTER STYLES */
 footer{
 width:100%;
 max-width:340px;
 margin:0 auto;
-padding-bottom: 10px;
-}
-
-/* GENERATOR INFO OVERLAY UPGRADED */
-.generator-info{
-position: fixed; /* Ginawang parang overlay */
-top: 50%; /* Center vertically */
-left: 50%; /* Center horizontally */
-transform: translate(-50%, -50%); /* Adjust to true center */
-background: rgba(17, 24, 38, 0.9); /* Semi-transparent background */
-padding: 30px;
-border-radius: 20px;
-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Shadow para lumutang */
-z-index: 100; /* Siguraduhing nasa ibabaw */
-font-size:16px; /* Pinalaki mula 12px */
-color:#fff; /* Pinalitan ang #888 ng White para kita sa madilim */
-line-height:1.6;
-display: none; /* Hide initial */
-}
-
-.generator-info.active {
-    display: block; /* Show kapag active */
-}
-
-.generator-info b {
-    color: #00ffd5; /* Highlight ang 12 hours */
-}
-
-.generator-info button.close-info {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    background: transparent;
-    border: none;
-    color: #fff;
-    font-size: 24px;
-    font-weight: bold;
-    cursor: pointer;
+padding-bottom: 15px;
 }
 
 .warning{
-font-size:14px; /* Pinalaki mula 12px */
+font-size:13px;
 color:#ffcc00;
-margin-bottom:12px;
+margin-bottom:10px;
 line-height:1.4;
 font-weight: bold;
 }
 
 .owner{
-font-size:15px; /* Pinalaki mula 13px */
+font-size:15px;
 color:#00ffd5;
 font-weight:bold;
-margin-top:15px;
 display:block;
 text-shadow: 0 0 5px rgba(0,255,213,0.5);
-cursor: pointer; /* Magmukhang clickable */
+cursor: pointer;
+text-decoration: underline;
 }
 
-/* VIP button paliit and moved to bottom */
+/* SMALL VIP BUTTON AT THE BOTTOM */
 .vip-btn-small{
-display:inline-flex; /* Paliitin at ilagay sa gitna */
+display:inline-flex;
 align-items:center;
 justify-content:center;
-padding:8px 15px; /* Paliitin ang padding */
-margin-top:10px;
-font-size:13px; /* Paliitin ang font */
+padding:8px 15px;
+margin-top:12px;
+font-size:12px;
 font-weight:bold;
-border-radius:10px;
+border-radius:8px;
 text-decoration:none;
 background:linear-gradient(45deg,#ffd700,#ff9f00);
 color:black;
-box-shadow:0 0 10px rgba(255,215,0,0.5);
+box-shadow:0 0 10px rgba(255,215,0,0.4);
 transition:0.2s;
 text-transform:uppercase;
 }
 
-.vip-btn-small:active{
-transform:scale(0.97);
+/* OVERLAY BOX */
+.generator-info{
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+background: #1a2230;
+padding: 25px;
+border-radius: 20px;
+border: 2px solid #00ffd5;
+box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+z-index: 100;
+font-size:15px;
+color:#fff;
+line-height:1.6;
+width: 85%;
+max-width: 300px;
+display: none;
+}
+
+.generator-info.active {
+    display: block;
+}
+
+.close-info {
+    display: block;
+    margin: 15px auto 0;
+    padding: 8px 20px;
+    background: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 </style>
@@ -219,72 +251,40 @@ transform:scale(0.97);
 </header>
 
 <div class="btn-group">
-
-<a class="btn key" href="https://sub4unlock.io/dECAt">
-🔑 GET FREE KEY
-</a>
-
-<a class="btn telegram" href="https://t.me/KazeMainChannel">
-📢 JOIN TELEGRAM
-</a>
-
-<a class="btn tutorial" href="https://t.me/KazeTutorial/26">
-🎥 WATCH TUTORIAL
-</a>
-
+    <a class="btn key" href="https://sub4unlock.io/dECAt">🔑 GET FREE KEY</a>
+    <a class="btn telegram" href="https://t.me/KazeMainChannel">📢 JOIN TELEGRAM</a>
+    <a class="btn tutorial" href="https://t.me/KazeTutorial/26">🎥 WATCH TUTORIAL</a>
 </div>
 
 <footer>
-
-<p class="warning">
-⚠️ Please do not bypass the link system.
-</p>
-
-<span class="owner" id="owner-link">
-Owner: @KAZEHAYAMODZ
-</span>
-
-<a class="vip-btn-small" href="https://t.me/KAZEHAYAMODZ" target="_blank">
-⭐ BUY VIP KEY
-</a>
-
+    <p class="warning">⚠️ Please do not bypass the link system.</p>
+    <span class="owner" id="open-info">Owner: @KAZEHAYAMODZ</span>
+    
+    <a class="vip-btn-small" href="https://t.me/KAZEHAYAMODZ" target="_blank">⭐ BUY VIP KEY</a>
 </footer>
 
 </div>
 
-<div class="generator-info" id="generator-info-overlay">
-<button class="close-info" id="close-info-overlay">&times;</button>
-Official Kaze free key generator.<br>
-Key duration: <b>12 hours</b>.<br>
-Generate a new key once your key expires.
+<div class="generator-info" id="info-box">
+    Official Kaze free key generator.<br>
+    Key duration: <b style="color:#00ffd5">12 hours</b>.<br><br>
+    Generate a new key once your key expires.
+    <button class="close-info" id="close-info">CLOSE</button>
 </div>
 
 <script>
-/* ================
-ANTI BACK (BLOCK RETURN TO GPLINKS)
-====================== */
+// Anti-back logic
 history.pushState(null,null,location.href);
 history.pushState(null,null,location.href);
+window.onpopstate=function(){ history.go(1); };
 
-window.onpopstate=function(){
-history.go(1);
-};
+// Overlay logic
+const openBtn = document.getElementById('open-info');
+const closeBtn = document.getElementById('close-info');
+const infoBox = document.getElementById('info-box');
 
-/* ================
-SHOW GENERATOR INFO OVERLAY
-====================== */
-const ownerLink = document.getElementById('owner-link');
-const generatorInfoOverlay = document.getElementById('generator-info-overlay');
-const closeInfoOverlay = document.getElementById('close-info-overlay');
-
-ownerLink.addEventListener('click', () => {
-  generatorInfoOverlay.classList.add('active');
-});
-
-closeInfoOverlay.addEventListener('click', () => {
-  generatorInfoOverlay.classList.remove('active');
-});
-
+openBtn.onclick = () => infoBox.classList.add('active');
+closeBtn.onclick = () => infoBox.classList.remove('active');
 </script>
 
 </body>
