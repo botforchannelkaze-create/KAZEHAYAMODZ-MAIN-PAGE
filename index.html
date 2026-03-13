@@ -33,7 +33,7 @@ background:#111826;
 display:flex;
 flex-direction:column;
 justify-content:space-between;
-padding:25px 20px;
+padding:35px 20px;
 text-align:center;
 }
 
@@ -80,8 +80,8 @@ display:flex;
 align-items:center;
 justify-content:center;
 width:100%;
-padding:15px;
-margin-bottom:10px;
+padding:16px;
+margin-bottom:12px;
 font-size:16px;
 font-weight:bold;
 border:none;
@@ -111,28 +111,56 @@ background:#ff4444;
 color:#fff;
 }
 
+/* VIP button */
+
+.vip-btn{
+display:flex;
+align-items:center;
+justify-content:center;
+width:100%;
+padding:12px;
+margin-top:6px;
+font-size:14px;
+font-weight:bold;
+border-radius:10px;
+text-decoration:none;
+background:linear-gradient(45deg,#ffd700,#ff9f00);
+color:black;
+box-shadow:0 0 12px rgba(255,215,0,0.5);
+transition:0.2s;
+}
+
+.vip-btn:active{
+transform:scale(0.97);
+}
+
+.vip-text{
+font-size:11px;
+color:#aaa;
+margin-top:4px;
+}
+
 /* footer */
+
 footer{
 width:100%;
 max-width:320px;
 margin:0 auto;
-margin-top:10px;
 }
 
-/* generator info */
 .generator-info{
 font-size:12px;
 color:#888;
 line-height:1.5;
-margin-bottom:10px;
+margin-bottom:20px;
 border-top:1px solid rgba(255,255,255,0.05);
-padding-top:10px;
+padding-top:15px;
 }
 
 .warning{
 font-size:12px;
 color:#ffcc00;
-margin-bottom:6px;
+margin-bottom:10px;
 line-height:1.4;
 }
 
@@ -140,38 +168,8 @@ line-height:1.4;
 font-size:13px;
 color:#00ffd5;
 font-weight:bold;
-margin-top:8px;
+margin-top:15px;
 display:block;
-}
-
-/* VIP BOX */
-.vip-box{
-margin-top:10px;
-display:flex;
-flex-direction:column;
-align-items:center;
-}
-
-.vip-btn{
-background:linear-gradient(45deg,#ffd700,#ff9900);
-color:black;
-font-weight:bold;
-font-size:13px;
-padding:8px 18px;
-border-radius:8px;
-text-decoration:none;
-box-shadow:0 0 10px rgba(255,215,0,0.5);
-transition:0.2s;
-}
-
-.vip-btn:hover{
-transform:scale(1.05);
-}
-
-.vip-text{
-font-size:11px;
-color:#aaa;
-margin-top:4px;
 }
 
 </style>
@@ -200,6 +198,16 @@ margin-top:4px;
 🎥 WATCH TUTORIAL
 </a>
 
+<!-- VIP BUTTON HERE -->
+
+<a class="vip-btn" href="https://t.me/KazeMainChannel" target="_blank">
+⭐ BUY VIP KEY
+</a>
+
+<div class="vip-text">
+Unlimited access • No ads • Faster updates
+</div>
+
 </div>
 
 <footer>
@@ -217,18 +225,6 @@ Generate a new key once your key expires.
 <span class="owner">
 Owner: @KAZEHAYAMODZ
 </span>
-
-<div class="vip-box">
-
-<a class="vip-btn" href="https://t.me/KazeMainChannel" target="_blank">
-⭐ BUY VIP KEY
-</a>
-
-<div class="vip-text">
-Unlimited access • No ads • Faster updates
-</div>
-
-</div>
 
 </footer>
 
