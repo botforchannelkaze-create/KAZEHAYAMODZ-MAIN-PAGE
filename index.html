@@ -4,257 +4,203 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Kaze Key System</title>
-
 <style>
-
 *{
-box-sizing:border-box;
-margin:0;
-padding:0;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
-
 body{
-height:100vh;
-width:100vw;
-display:flex;
-justify-content:center;
-align-items:center;
-background:#0b0f16;
-font-family:'Segoe UI',sans-serif;
-color:white;
-overflow:hidden;
+    height:100vh;
+    width:100vw;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#0b0f16;
+    font-family:'Segoe UI',sans-serif;
+    color:white;
+    overflow:hidden;
 }
-
 /* container */
-
 .container{
-position:relative;
-width:100%;
-height:100vh;
-background:#111826;
-display:flex;
-flex-direction:column;
-justify-content:space-between;
-padding:30px 20px;
-text-align:center;
-transition:0.3s;
+    position:relative;
+    width:100%;
+    height:100vh;
+    background:#111826;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    padding:30px 20px;
+    text-align:center;
+    transition:0.3s;
+    overflow:hidden;
 }
 
-/* blur when holding button */
-
-.blur{
-filter:blur(6px);
-transform:scale(0.98);
+/* blur overlay for background only */
+.blur-bg::before {
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    backdrop-filter:blur(6px);
+    z-index:0;
 }
 
 /* rainbow line */
-
-.container::before{
-content:"";
-position:absolute;
-top:0;
-left:0;
-right:0;
-height:4px;
-background:linear-gradient(90deg,red,orange,yellow,lime,cyan,blue,magenta,red);
-background-size:400%;
-animation:rainbow 6s linear infinite;
+.container::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    height:4px;
+    background:linear-gradient(90deg,red,orange,yellow,lime,cyan,blue,magenta,red);
+    background-size:400%;
+    animation:rainbow 6s linear infinite;
 }
 
 @keyframes rainbow{
-0%{background-position:0%}
-100%{background-position:400%}
+    0%{background-position:0%}
+    100%{background-position:400%}
 }
 
 /* header */
-
+header{
+    position:relative;
+    z-index:2; /* above blur */
+}
 header h1{
-font-size:clamp(26px,7vw,38px);
-letter-spacing:2px;
-margin-bottom:6px;
-text-transform:uppercase;
+    font-size:clamp(28px,7vw,40px);
+    letter-spacing:2px;
+    margin-bottom:6px;
+    text-transform:uppercase;
 }
-
 header p{
-color:#aaa;
-font-size:14px;
+    color:#aaa;
+    font-size:14px;
 }
-
-/* info message */
-
 .info{
-margin-top:10px;
-font-size:13px;
-color:#bbb;
-line-height:1.5;
+    margin-top:10px;
+    font-size:13px;
+    color:#bbb;
+    line-height:1.5;
 }
 
 /* buttons */
-
 .btn-group{
-width:100%;
-max-width:320px;
-margin:0 auto;
+    width:100%;
+    max-width:320px;
+    margin:0 auto;
+    position:relative;
+    z-index:2; /* above blur */
 }
-
 .btn{
-display:flex;
-align-items:center;
-justify-content:center;
-width:100%;
-padding:16px;
-margin-bottom:12px;
-font-size:16px;
-font-weight:bold;
-border:none;
-border-radius:10px;
-text-decoration:none;
-transition:0.2s;
-text-transform:uppercase;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    padding:16px;
+    margin-bottom:12px;
+    font-size:16px;
+    font-weight:bold;
+    border:none;
+    border-radius:10px;
+    text-decoration:none;
+    transition:0.2s;
+    text-transform:uppercase;
 }
-
-.btn:active{
-transform:scale(0.97);
-}
-
-/* button styles */
-
-.key{
-background:#00ffd5;
-color:#000;
-box-shadow:0 0 20px rgba(0,255,213,0.35);
-}
-
-.telegram{
-background:#229ED9;
-color:#fff;
-}
-
-.tutorial{
-background:#ff4444;
-color:#fff;
+.btn:active{transform:scale(0.97);}
+.key{background:#00ffd5;color:#000;box-shadow:0 0 20px rgba(0,255,213,0.35);}
+.telegram{background:#229ED9;color:#fff;}
+.tutorial{background:#ff4444;color:#fff;}
+.duration{
+    font-size:12px;
+    color:#888;
+    margin-top:8px;
 }
 
 /* footer */
-
 footer{
-max-width:320px;
-margin:0 auto;
+    max-width:320px;
+    margin:0 auto;
+    position:relative;
+    z-index:2; /* above blur */
 }
-
 .warning{
-font-size:12px;
-color:#ffcc00;
-margin-bottom:10px;
-line-height:1.4;
+    font-size:12px;
+    color:#ffcc00;
+    margin-bottom:10px;
+    line-height:1.4;
 }
-
 .owner{
-font-size:13px;
-color:#00ffd5;
-font-weight:bold;
-margin-top:15px;
-display:block;
+    font-size:13px;
+    color:#00ffd5;
+    font-weight:bold;
+    margin-top:15px;
+    display:block;
 }
 
-/* key duration text */
-
-.duration{
-font-size:12px;
-color:#888;
-margin-top:8px;
-}
-
+/* blur effect only for background not buttons */
 </style>
 </head>
-
 <body>
 
 <div class="container" id="container">
 
 <header>
-
 <h1>KAZE KEY SYSTEM</h1>
-
 <p>Free key generator for Kaze Loader</p>
-
 <div class="info">
 This is the official free key generator.<br>
 Only here you can generate a valid license key.<br>
 Default key duration is <b>12 hours</b>.
 </div>
-
 </header>
 
-
 <div class="btn-group">
-
-<a class="btn key holdBtn" href="https://sub4unlock.io/dECAt">
-🔑 GET FREE KEY
-</a>
-
-<a class="btn telegram" href="https://t.me/KazeMainChannel">
-📢 JOIN TELEGRAM
-</a>
-
-<a class="btn tutorial" href="https://t.me/KazeTutorial/26">
-🎥 WATCH TUTORIAL
-</a>
+<a class="btn key holdBtn" href="https://sub4unlock.io/dECAt">🔑 GET FREE KEY</a>
+<a class="btn telegram" href="https://t.me/KazeMainChannel">📢 JOIN TELEGRAM</a>
+<a class="btn tutorial" href="https://t.me/KazeTutorial/26">🎥 WATCH TUTORIAL</a>
 
 <div class="duration">
 You can generate a new key once your previous key expires.
 </div>
-
 </div>
 
-
 <footer>
-
 <p class="warning">
 ⚠️ Please do not bypass the link system.<br>
 Each key generation supports the developer.
 </p>
-
 <p style="font-size:11px;color:#666;">
 If any error occurs, simply refresh the main page.
 </p>
-
-<span class="owner">
-Owner: @KAZEHAYAMODZ
-</span>
-
+<span class="owner">Owner: @KAZEHAYAMODZ</span>
 </footer>
 
 </div>
 
-
 <script>
-
 /* HOLD BLUR EFFECT */
-
 let container = document.getElementById("container");
 let holdButtons = document.querySelectorAll(".holdBtn");
 
 holdButtons.forEach(btn=>{
-
-btn.addEventListener("mousedown",()=>{
-container.classList.add("blur");
+    btn.addEventListener("mousedown",()=>{
+        container.classList.add("blur-bg");
+    });
+    btn.addEventListener("touchstart",()=>{
+        container.classList.add("blur-bg");
+    });
+    btn.addEventListener("mouseup",()=>{
+        container.classList.remove("blur-bg");
+    });
+    btn.addEventListener("touchend",()=>{
+        container.classList.remove("blur-bg");
+    });
 });
-
-btn.addEventListener("touchstart",()=>{
-container.classList.add("blur");
-});
-
-btn.addEventListener("mouseup",()=>{
-container.classList.remove("blur");
-});
-
-btn.addEventListener("touchend",()=>{
-container.classList.remove("blur");
-});
-
-});
-
 </script>
 
 </body>
