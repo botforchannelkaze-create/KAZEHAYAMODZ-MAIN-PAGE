@@ -6,207 +6,172 @@
 <title>Kaze Key System</title>
 
 <style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
 
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-}
+    body {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #0b0f16;
+        font-family: 'Segoe UI', sans-serif;
+        color: white;
+        overflow: hidden;
+    }
 
-body{
-height:100vh;
-width:100vw;
-display:flex;
-justify-content:center;
-align-items:center;
-background:#0b0f16;
-font-family:'Segoe UI',sans-serif;
-color:white;
-overflow:hidden;
-}
+    /* container */
+    .container {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        background: #111826;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 35px 20px;
+        text-align: center;
+    }
 
-/* container */
+    /* rainbow line */
+    .container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, red, orange, yellow, lime, cyan, blue, magenta, red);
+        background-size: 400%;
+        animation: rainbow 6s linear infinite;
+    }
 
-.container{
-position:relative;
-width:100%;
-height:100vh;
-background:#111826;
-display:flex;
-flex-direction:column;
-justify-content:space-between;
-padding:30px 20px;
-text-align:center;
-}
+    @keyframes rainbow {
+        0% { background-position: 0% }
+        100% { background-position: 400% }
+    }
 
-/* rainbow line */
+    /* header */
+    header h1 {
+        font-size: clamp(26px, 7vw, 38px);
+        letter-spacing: 2px;
+        margin-bottom: 6px;
+        text-transform: uppercase;
+    }
 
-.container::before{
-content:"";
-position:absolute;
-top:0;
-left:0;
-right:0;
-height:4px;
-background:linear-gradient(90deg,red,orange,yellow,lime,cyan,blue,magenta,red);
-background-size:400%;
-animation:rainbow 6s linear infinite;
-}
+    header p {
+        color: #aaa;
+        font-size: 14px;
+    }
 
-@keyframes rainbow{
-0%{background-position:0%}
-100%{background-position:400%}
-}
+    /* buttons */
+    .btn-group {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+    }
 
-/* header */
+    .btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 16px;
+        margin-bottom: 12px;
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        border-radius: 10px;
+        text-decoration: none;
+        transition: 0.2s;
+        text-transform: uppercase;
+    }
 
-header h1{
-font-size:clamp(26px,7vw,38px);
-letter-spacing:2px;
-margin-bottom:6px;
-text-transform:uppercase;
-}
+    .btn:active {
+        transform: scale(0.97);
+    }
 
-header p{
-color:#aaa;
-font-size:14px;
-}
+    .key {
+        background: #00ffd5;
+        color: #000;
+        box-shadow: 0 0 20px rgba(0, 255, 213, 0.35);
+    }
 
-/* buttons */
+    .telegram { background: #229ED9; color: #fff; }
+    .tutorial { background: #ff4444; color: #fff; }
 
-.btn-group{
-width:100%;
-max-width:320px;
-margin:0 auto;
-}
+    /* footer */
+    footer {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+    }
 
-.btn{
-display:flex;
-align-items:center;
-justify-content:center;
-width:100%;
-padding:16px;
-margin-bottom:12px;
-font-size:16px;
-font-weight:bold;
-border:none;
-border-radius:10px;
-text-decoration:none;
-transition:0.2s;
-text-transform:uppercase;
-}
+    /* Dito na yung info mo sa pinaka-baba */
+    .generator-info {
+        font-size: 12px;
+        color: #888;
+        line-height: 1.5;
+        margin-bottom: 20px;
+        border-top: 1px solid rgba(255,255,255,0.05);
+        padding-top: 15px;
+    }
 
-.btn:active{
-transform:scale(0.97);
-}
+    .warning {
+        font-size: 12px;
+        color: #ffcc00;
+        margin-bottom: 10px;
+        line-height: 1.4;
+    }
 
-/* button styles */
-
-.key{
-background:#00ffd5;
-color:#000;
-box-shadow:0 0 20px rgba(0,255,213,0.35);
-}
-
-.telegram{
-background:#229ED9;
-color:#fff;
-}
-
-.tutorial{
-background:#ff4444;
-color:#fff;
-}
-
-/* message under buttons */
-
-.generator-info{
-font-size:13px;
-color:#bbb;
-line-height:1.5;
-margin-top:10px;
-}
-
-/* footer */
-
-footer{
-max-width:320px;
-margin:0 auto;
-}
-
-.warning{
-font-size:12px;
-color:#ffcc00;
-margin-bottom:10px;
-line-height:1.4;
-}
-
-.owner{
-font-size:13px;
-color:#00ffd5;
-font-weight:bold;
-margin-top:15px;
-display:block;
-}
-
+    .owner {
+        font-size: 13px;
+        color: #00ffd5;
+        font-weight: bold;
+        margin-top: 15px;
+        display: block;
+    }
 </style>
 </head>
 
 <body>
 
 <div class="container">
+    <header>
+        <h1>KAZE KEY SYSTEM</h1>
+        <p>Free key generator for Kaze Loader</p>
+    </header>
 
-<header>
+    <div class="btn-group">
+        <a class="btn key" href="https://sub4unlock.io/dECAt">🔑 GET FREE KEY</a>
+        <a class="btn telegram" href="https://t.me/KazeMainChannel">📢 JOIN TELEGRAM</a>
+        <a class="btn tutorial" href="https://t.me/KazeTutorial/26">🎥 WATCH TUTORIAL</a>
+    </div>
 
-<h1>KAZE KEY SYSTEM</h1>
+    <footer>
+        <div class="generator-info">
+            This is the official free key generator.<br>
+            Only here you can generate a valid license key.<br>
+            Default key duration is <b>12 hours</b>.
+        </div>
 
-<p>Free key generator for Kaze Loader</p>
+        <p class="warning">
+            ⚠️ Please do not bypass the link system.<br>
+            Each key generation supports the developer.
+        </p>
 
-</header>
+        <p style="font-size:11px;color:#555;">
+            If any error occurs, simply refresh the main page.
+        </p>
 
-
-<div class="btn-group">
-
-<a class="btn key" href="https://sub4unlock.io/dECAt">
-🔑 GET FREE KEY
-</a>
-
-<a class="btn telegram" href="https://t.me/KazeMainChannel">
-📢 JOIN TELEGRAM
-</a>
-
-<a class="btn tutorial" href="https://t.me/KazeTutorial/26">
-🎥 WATCH TUTORIAL
-</a>
-
-<div class="generator-info">
-
-This is the official free key generator.<br>
-Only here you can generate a valid license key.<br>
-Default key duration is <b>12 hours</b>.
-
-</div>
-
-</div>
-
-
-<footer>
-
-<p class="warning">
-⚠️ Please do not bypass the link system.<br>
-Each key generation supports the developer.
-</p>
-
-<p style="font-size:11px;color:#666;">
-If any error occurs, simply refresh the main page.
-</p>
-
-<span class="owner">
-Owner: @KAZEHAYAMODZ
-</span>
-
-</footer>
-
+        <span class="owner">
+            Owner: @KAZEHAYAMODZ
+        </span>
+    </footer>
 </div>
 
 </body>
