@@ -7,81 +7,119 @@
 <style>
 
 body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
 background:#0b0f16;
 font-family:sans-serif;
 color:white;
 text-align:center;
-padding-top:100px;
-margin:0;
+}
+
+/* RAINBOW BORDER ANIMATION */
+
+.box{
+position:relative;
+width:95%;
+max-width:600px;
+padding:50px;
+border-radius:20px;
+background:#111826;
+overflow:hidden;
+}
+
+.box::before{
+content:"";
+position:absolute;
+top:-2px;
+left:-2px;
+right:-2px;
+bottom:-2px;
+background:linear-gradient(
+90deg,
+red,
+orange,
+yellow,
+lime,
+cyan,
+blue,
+magenta,
+red
+);
+background-size:400%;
+border-radius:22px;
+z-index:-1;
+animation:rainbow 6s linear infinite;
+}
+
+@keyframes rainbow{
+0%{background-position:0%}
+100%{background-position:400%}
 }
 
 h1{
-font-size:48px;
-margin-bottom:10px;
+font-size:50px;
 letter-spacing:2px;
+margin-bottom:10px;
 }
 
 p{
-color:#bbb;
-font-size:18px;
+color:#aaa;
+font-size:20px;
 }
 
-.container{
-width:92%;
-max-width:520px;
-margin:auto;
-background:#111826;
-padding:40px;
-border-radius:18px;
-box-shadow:0 0 25px rgba(0,0,0,0.6);
-}
+/* BUTTONS */
 
 .btn{
 display:block;
 width:100%;
-padding:22px;
-margin-top:22px;
+padding:24px;
+margin-top:25px;
 font-size:22px;
 font-weight:bold;
 border:none;
 border-radius:14px;
 cursor:pointer;
 text-decoration:none;
-transition:0.2s;
+transition:0.25s;
 }
 
 .btn:hover{
-transform:scale(1.05);
+transform:scale(1.06);
 }
 
 .key{
 background:#00ffd5;
 color:black;
-box-shadow:0 0 20px rgba(0,255,213,0.5);
+box-shadow:0 0 20px #00ffd5;
 }
 
 .telegram{
 background:#229ED9;
 color:white;
-box-shadow:0 0 15px rgba(34,158,217,0.5);
+box-shadow:0 0 20px #229ED9;
 }
 
 .tutorial{
 background:#ff4444;
 color:white;
-box-shadow:0 0 15px rgba(255,68,68,0.5);
+box-shadow:0 0 20px #ff4444;
 }
 
+/* MESSAGE */
+
 .message{
-margin-top:45px;
+margin-top:40px;
 font-size:16px;
-color:#888;
-line-height:1.8;
+color:#999;
+line-height:1.7;
 }
 
 .owner{
 margin-top:30px;
-font-size:15px;
+font-size:16px;
 color:#00ffd5;
 font-weight:bold;
 letter-spacing:1px;
@@ -92,7 +130,7 @@ letter-spacing:1px;
 
 <body>
 
-<div class="container">
+<div class="box">
 
 <h1>KAZE KEY SYSTEM</h1>
 
