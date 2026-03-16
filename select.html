@@ -1,196 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KAZEHAYAMODZ | Select Product</title>
-    <style>
-        /* Base Styling */
-        body {
-            background: #050509; /* Super Dark Black */
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            color: white;
-            overflow: hidden; /* Prevent scrollbars from glow */
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KAZEHAYAMODZ | Select Product</title>
+<style>
 
-        /* The Moving Red Border Animation Container */
-        .neon-box {
-            position: relative;
-            width: 380px;
-            max-width: 90%;
-            padding: 3px; /* Space for the border */
-            border-radius: 20px;
-            overflow: hidden;
-            background: rgba(255, 255, 255, 0.01);
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
-        }
+body {
+    background: #f0f2f5; /* Light gray para lumutang yung white card */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
 
-        /* The spinning red glow effect */
-        .neon-box::before {
-            content: '';
-            position: absolute;
-            width: 150%;
-            height: 150%;
-            background: conic-gradient(transparent, transparent, transparent, #ff0000, #ff0000, transparent);
-            animation: spin 3s linear infinite;
-            top: -25%;
-            left: -25%;
-        }
+/* The spinning red border container */
+.neon-wrapper {
+    position: relative;
+    width: 350px;
+    padding: 5px; /* Kapal ng spinning border */
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ccc; /* Fallback color */
+}
 
-        @keyframes spin {
-            100% { transform: rotate(360deg); }
-        }
+/* Red spinning animation */
+.neon-wrapper::before {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 400%;
+    background: conic-gradient(#ff0000, transparent, transparent, #ff0000);
+    animation: rotate 3s linear infinite;
+}
 
-        /* The inner container (where content goes) */
-        .container {
-            position: relative; /* Places content above the spinning border */
-            background: #0a0a12; /* Slightly lighter black for contrast */
-            padding: 40px 30px;
-            border-radius: 17px; /* Slightly less than neon-box to fit inside */
-            text-align: center;
-            backdrop-filter: blur(5px);
-        }
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
 
-        /* Branding Text */
-        .brand-title {
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: #ff0000;
-            margin: 0 0 10px 0;
-            font-weight: bold;
-            text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
-        }
+/* The actual white container */
+.container {
+    position: relative;
+    background: white;
+    text-align: center;
+    width: 100%;
+    padding: 30px 20px;
+    border-radius: 15px;
+    z-index: 1; /* Para nasa ibabaw ng spinning border */
+}
 
-        h2 {
-            margin: 0 0 30px 0;
-            font-size: 30px;
-            font-weight: 800;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            background: linear-gradient(to right, white, #ccc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+/* Custom Message sa Taas */
+.brand-header {
+    font-size: 14px;
+    font-weight: 800;
+    color: #ff0000;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 5px;
+}
 
-        /* Arrow Button (Stylized) */
-        .arrow {
-            font-size: 24px;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            user-select: none;
-            background: rgba(255,255,255,0.05);
-            width: 50px;
-            height: 50px;
-            line-height: 50px;
-            border-radius: 12px;
-            margin: 0 auto;
-            display: block;
-            color: #ff0000;
-            border: 1px solid rgba(255, 0, 0, 0.3);
-            box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
-        }
+h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 26px;
+    color: #333;
+}
 
-        .arrow:hover {
-            background: rgba(255, 0, 0, 0.2);
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
-            transform: translateY(-2px);
-        }
+/* Arrow Button */
+.arrow {
+    font-size: 40px;
+    cursor: pointer;
+    transition: 0.3s;
+    user-select: none;
+    display: inline-block;
+}
 
-        .arrow.rotate {
-            transform: rotate(180deg);
-            background: #ff0000;
-            color: white;
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
-        }
+.arrow.rotate {
+    transform: rotate(180deg);
+}
 
-        /* Hidden Menu with Advanced Slide */
-        .menu {
-            margin-top: 30px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.6s cubic-bezier(0, 1, 0, 1), opacity 0.4s;
-            opacity: 0;
-        }
+/* Hidden Menu */
+.menu {
+    margin-top: 20px;
+    display: none;
+}
 
-        .menu.show {
-            max-height: 500px; /* Large enough to fit content */
-            opacity: 1;
-            transition: max-height 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s;
-        }
+.menu.show {
+    display: block;
+}
 
-        /* Styled Buttons */
-        .btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            width: 100%;
-            padding: 18px;
-            margin-bottom: 15px;
-            border: none;
-            border-radius: 12px;
-            font-size: 14px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: 0.3s ease;
-            position: relative;
-        }
+/* Buttons */
+.btn {
+    display: block;
+    width: 100%;
+    padding: 18px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
 
-        /* Injector (Premium Red) */
-        .injector {
-            background: linear-gradient(135deg, #ff0000 0%, #a30000 100%);
-            color: white;
-            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
-        }
+.btn:active {
+    transform: scale(0.98);
+}
 
-        .injector:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(255, 0, 0, 0.6);
-        }
+.injector {
+    background: #00ffd5;
+    color: #000;
+}
 
-        /* Script (Dark/Disabled-ish) */
-        .script {
-            background: rgba(255, 255, 255, 0.05);
-            color: #777;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
+.script {
+    background: #e0e0e0;
+    color: #666;
+}
 
-        .script:hover {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-    </style>
+</style>
 </head>
 <body>
 
-    <div class="neon-box">
-        <div class="container">
-            <p class="brand-title">KAZEHAYAMODZ FREE KEY</p>
-            <h2>Select Product</h2>
-            
-            <div class="arrow" id="arrow">▼</div>
+<div class="neon-wrapper">
+    <div class="container">
+        <div class="brand-header">KAZEHAYAMODZ FREE KEY</div>
+        
+        <h2>Select Product</h2>
+        
+        <div class="arrow" id="arrow">⬇️</div>
 
-            <div class="menu" id="menu">
-                <button class="btn injector" onclick="location.href='https://sub4unlock.io/dECAt'">
-                    <span style="font-size: 18px;">🎮</span> CODM INJECTOR
-                </button>
+        <div class="menu" id="menu">
+            <button class="btn injector" onclick="location.href='https://sub4unlock.io/dECAt'">
+                🎮 CODM INJECTOR
+            </button>
 
-                <button class="btn script" onclick="maintenance()">
-                    <span style="font-size: 18px;">📜</span> CODM SCRIPT
-                </button>
-            </div>
+            <button class="btn script" onclick="maintenance()">
+                📜 CODM SCRIPT
+            </button>
         </div>
     </div>
+</div>
 
 <script>
     const arrow = document.getElementById("arrow");
@@ -202,8 +157,7 @@
     }
 
     function maintenance() {
-        // Red theme alert to match
-        alert("🟥 SYSTEM STATUS: CODM SCRIPT\n\nCurrently under maintenance.\nFree key updates are in progress!");
+        alert("CODM SCRIPT KEY SYSTEM\n\nCurrently under maintenance.\nFree key coming soon!");
     }
 </script>
 
