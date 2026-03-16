@@ -3,32 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KAZEHAYAMODZ SELECTOR</title>
+<title>KAZEHAYAMODZ | FREE KEY</title>
 <style>
 
+/* HACKER VIBE BACKGROUND */
 body {
-    background: #0b0f16; /* Dark background para lumutang yung red neon */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #05080a; /* Deep Space Black */
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(0, 255, 213, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(255, 0, 0, 0.05) 0%, transparent 40%);
+    font-family: 'Courier New', Courier, monospace; /* Hacker font style */
     display: flex;
-    flex-direction: column; /* Vertical alignment */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
+    color: #00ffd5;
 }
 
-/* BOX 1: BRAND HEADER WITH ROTATING RED BORDER */
+/* BOX 1: BRAND HEADER (RED NEON SPIN) */
 .brand-box {
     position: relative;
-    width: 350px;
-    padding: 3px; /* Kapal ng spinning border */
-    border-radius: 15px;
+    width: 360px;
+    padding: 2px;
+    border-radius: 10px;
     overflow: hidden;
-    margin-bottom: 20px; /* Space sa pagitan ng dalawang box */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin-bottom: 25px;
     background: #111;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
 }
 
 .brand-box::before {
@@ -44,90 +47,145 @@ body {
 .brand-inner {
     position: relative;
     z-index: 1;
-    background: #0f1624;
+    background: #080808;
     width: 100%;
-    padding: 20px;
-    border-radius: 12px;
+    padding: 15px;
+    border-radius: 8px;
     text-align: center;
-    font-size: 20px;
-    font-weight: 900;
+    font-size: 18px;
+    font-weight: bold;
     color: white;
-    letter-spacing: 1px;
-    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+    letter-spacing: 2px;
+    text-shadow: 0 0 8px #ff0000;
 }
 
-/* BOX 2: PRODUCT SELECTOR (WHITE CONTAINER) */
+/* BOX 2: HACKER SELECTOR (THE "UPGRADED" BOX) */
 .container {
-    background: white;
+    position: relative;
+    background: rgba(15, 22, 36, 0.8); /* Transparent blue-black */
     text-align: center;
-    width: 350px;
+    width: 340px;
     padding: 30px 20px;
-    border-radius: 20px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    border: 1px solid rgba(0, 255, 213, 0.3); /* Cyan border */
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(0, 255, 213, 0.1);
 }
 
+/* Glitch effect sa title */
 h2 {
     margin-top: 0;
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
-    font-weight: 800;
+    margin-bottom: 25px;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #00ffd5;
+    text-shadow: 2px 2px #000, 0 0 10px rgba(0, 255, 213, 0.5);
 }
 
-/* Arrow Button */
+/* Custom Hacker Arrow */
 .arrow {
-    font-size: 40px;
+    font-size: 30px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     user-select: none;
     display: inline-block;
-    color: #333;
+    color: #00ffd5;
+    padding: 10px;
+    border: 1px dashed #00ffd5;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+}
+
+.arrow:hover {
+    box-shadow: 0 0 15px #00ffd5;
+    background: rgba(0, 255, 213, 0.1);
 }
 
 .arrow.rotate {
-    transform: rotate(180deg);
+    transform: rotate(180deg) scale(0.9);
+    border-style: solid;
+    background: #00ffd5;
+    color: #000;
 }
 
 /* Hidden Menu */
 .menu {
-    margin-top: 20px;
+    margin-top: 25px;
     display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .menu.show {
     display: block;
 }
 
-/* Buttons */
+/* HACKER BUTTONS */
 .btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 12px;
     width: 100%;
-    padding: 18px;
+    padding: 15px;
     margin-bottom: 15px;
-    border: none;
-    border-radius: 12px;
-    font-size: 16px;
+    border: 1px solid rgba(0, 255, 213, 0.5);
+    border-radius: 5px;
+    font-size: 14px;
     font-weight: bold;
+    text-transform: uppercase;
     cursor: pointer;
-    transition: transform 0.2s, background 0.3s;
+    background: rgba(0, 0, 0, 0.5);
+    color: #00ffd5;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
 }
 
-.btn:active {
-    transform: scale(0.95);
+/* Button Hover - Scanner Light Effect */
+.btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 20%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(30deg);
+    transition: 0.5s;
+}
+
+.btn:hover::after {
+    left: 120%;
+}
+
+.btn:hover {
+    background: #00ffd5;
+    color: #000;
+    box-shadow: 0 0 20px rgba(0, 255, 213, 0.6);
 }
 
 .injector {
-    background: #00ffd5;
-    color: #000;
-    box-shadow: 0 4px 10px rgba(0, 255, 213, 0.3);
+    border-color: #00ffd5;
 }
 
 .script {
-    background: #ccc;
-    color: #333;
+    border-color: #555;
+    color: #555;
+}
+
+.script:hover {
+    border-color: #ff4444;
+    color: #fff;
+    background: #ff4444;
+    box-shadow: 0 0 20px rgba(255, 68, 68, 0.6);
 }
 
 @keyframes rotate {
@@ -146,17 +204,17 @@ h2 {
     </div>
 
     <div class="container">
-        <h2>Select Product</h2>
+        <h2>System_Select</h2>
         
-        <div class="arrow" id="arrow">⬇️</div>
+        <div class="arrow" id="arrow">V</div>
 
         <div class="menu" id="menu">
             <button class="btn injector" onclick="location.href='https://sub4unlock.io/dECAt'">
-                🎮 CODM INJECTOR
+                [ RUN_INJECTOR ]
             </button>
 
             <button class="btn script" onclick="maintenance()">
-                📜 CODM SCRIPT
+                [ LOAD_SCRIPT ]
             </button>
         </div>
     </div>
@@ -171,7 +229,7 @@ h2 {
     }
 
     function maintenance() {
-        alert("CODM SCRIPT KEY SYSTEM\n\nCurrently under maintenance.\nFree key coming soon!");
+        alert("CRITICAL ERROR: SCRIPT_UNDER_MAINTENANCE\n\nAccess Denied. Try again later.");
     }
 </script>
 
