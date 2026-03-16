@@ -13,7 +13,7 @@ padding:0;
 }
 
 body{
-height: 100dvh;
+height:100dvh;
 width:100vw;
 display:flex;
 justify-content:center;
@@ -24,11 +24,10 @@ color:white;
 overflow:hidden;
 }
 
-/* container */
 .container{
 position:relative;
 width:100%;
-height: 100dvh;
+height:100dvh;
 background:#111826;
 display:flex;
 flex-direction:column;
@@ -37,7 +36,7 @@ padding:35px 20px;
 text-align:center;
 }
 
-/* rainbow line top */
+/* rainbow line */
 .container::before{
 content:"";
 position:absolute;
@@ -48,7 +47,7 @@ height:4px;
 background:linear-gradient(90deg,red,orange,yellow,lime,cyan,blue,magenta,red);
 background-size:400%;
 animation:rainbow 6s linear infinite;
-z-index: 10;
+z-index:10;
 }
 
 @keyframes rainbow{
@@ -56,66 +55,56 @@ z-index: 10;
 100%{background-position:400%}
 }
 
-/* ==============================
-   HEADER WITH ROTATING RED BORDER
-   ============================== */
-header h1 {
-    font-size: clamp(20px, 6vw, 28px);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: #fff;
-    position: relative;
-    padding: 15px 20px;
-    display: inline-block;
-    background: #111826; /* Match container background */
-    border-radius: 15px;
-    overflow: hidden; /* Para hindi lumabas yung umiikot na gradient */
-    z-index: 1;
+/* HEADER */
+header h1{
+font-size:clamp(20px,6vw,28px);
+letter-spacing:1px;
+text-transform:uppercase;
+color:#fff;
+position:relative;
+padding:15px 20px;
+display:inline-block;
+background:#111826;
+border-radius:15px;
+overflow:hidden;
 }
 
-/* Ang umiikot na kulay pula */
-header h1::before {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: conic-gradient(
-        transparent, 
-        transparent, 
-        transparent, 
-        #ff0000 /* Red Light */
-    );
-    animation: rotate 2s linear infinite;
-    z-index: -2;
+header h1::before{
+content:"";
+position:absolute;
+top:-50%;
+left:-50%;
+width:200%;
+height:200%;
+background:conic-gradient(transparent,transparent,transparent,#ff0000);
+animation:rotate 2s linear infinite;
+z-index:-2;
 }
 
-/* Inner cover para magmukhang border lang yung pula */
-header h1::after {
-    content: "";
-    position: absolute;
-    inset: 3px; /* Kapal ng border */
-    background: #111826;
-    border-radius: 12px;
-    z-index: -1;
+header h1::after{
+content:"";
+position:absolute;
+inset:3px;
+background:#111826;
+border-radius:12px;
+z-index:-1;
 }
 
-header p {
-    color: #00ffd5; /* Cyan highlight para sa sub-text */
-    font-size: 13px;
-    margin-top: 15px;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-    text-shadow: 0 0 5px rgba(0, 255, 213, 0.5);
+header p{
+color:#00ffd5;
+font-size:13px;
+margin-top:15px;
+font-weight:bold;
+letter-spacing:.5px;
 }
 
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+@keyframes rotate{
+from{transform:rotate(0deg)}
+to{transform:rotate(360deg)}
 }
 
-/* buttons group */
+/* BUTTONS */
+
 .btn-group{
 width:100%;
 max-width:320px;
@@ -134,18 +123,19 @@ font-weight:bold;
 border:none;
 border-radius:12px;
 text-decoration:none;
-transition:0.2s;
+transition:.2s;
 text-transform:uppercase;
+cursor:pointer;
 }
 
 .btn:active{
-transform:scale(0.97);
+transform:scale(.97);
 }
 
 .key{
 background:#00ffd5;
 color:#000;
-box-shadow:0 0 20px rgba(0,255,213,0.35);
+box-shadow:0 0 20px rgba(0,255,213,.35);
 }
 
 .telegram{
@@ -158,12 +148,25 @@ background:#ff4444;
 color:#fff;
 }
 
-/* FOOTER STYLES */
+/* DROPDOWN OPTIONS */
+
+.key-options{
+display:none;
+animation:fade .3s ease;
+}
+
+@keyframes fade{
+from{opacity:0; transform:translateY(-5px)}
+to{opacity:1; transform:translateY(0)}
+}
+
+/* FOOTER */
+
 footer{
 width:100%;
 max-width:340px;
 margin:0 auto;
-padding-bottom: 15px;
+padding-bottom:15px;
 }
 
 .warning{
@@ -171,7 +174,7 @@ font-size:13px;
 color:#ffcc00;
 margin-bottom:10px;
 line-height:1.4;
-font-weight: bold;
+font-weight:bold;
 }
 
 .owner{
@@ -179,12 +182,11 @@ font-size:15px;
 color:#00ffd5;
 font-weight:bold;
 display:block;
-text-shadow: 0 0 5px rgba(0,255,213,0.5);
-cursor: pointer;
-text-decoration: underline;
+text-shadow:0 0 5px rgba(0,255,213,.5);
+cursor:pointer;
+text-decoration:underline;
 }
 
-/* SMALL VIP BUTTON AT THE BOTTOM */
 .vip-btn-small{
 display:inline-flex;
 align-items:center;
@@ -197,45 +199,44 @@ border-radius:8px;
 text-decoration:none;
 background:linear-gradient(45deg,#ffd700,#ff9f00);
 color:black;
-box-shadow:0 0 10px rgba(255,215,0,0.4);
-transition:0.2s;
-text-transform:uppercase;
+box-shadow:0 0 10px rgba(255,215,0,.4);
 }
 
-/* OVERLAY BOX */
+/* INFO BOX */
+
 .generator-info{
-position: fixed;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-background: #1a2230;
-padding: 25px;
-border-radius: 20px;
-border: 2px solid #00ffd5;
-box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
-z-index: 100;
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:#1a2230;
+padding:25px;
+border-radius:20px;
+border:2px solid #00ffd5;
+box-shadow:0 0 40px rgba(0,0,0,.8);
+z-index:100;
 font-size:15px;
 color:#fff;
 line-height:1.6;
-width: 85%;
-max-width: 300px;
-display: none;
+width:85%;
+max-width:300px;
+display:none;
 }
 
-.generator-info.active {
-    display: block;
+.generator-info.active{
+display:block;
 }
 
-.close-info {
-    display: block;
-    margin: 15px auto 0;
-    padding: 8px 20px;
-    background: #ff4444;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
+.close-info{
+display:block;
+margin:15px auto 0;
+padding:8px 20px;
+background:#ff4444;
+color:white;
+border:none;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;
 }
 
 </style>
@@ -246,45 +247,95 @@ display: none;
 <div class="container">
 
 <header>
-    <h1>KAZEHAYAMODZ<br>SECURE KEY SYSTEM</h1>
-    <p>Official Kaze Free Key Generator for Codm Injector</p>
+<h1>KAZEHAYAMODZ<br>SECURE KEY SYSTEM</h1>
+<p>Official Kaze Free Key Generator for Codm Injector</p>
 </header>
 
 <div class="btn-group">
-    <a class="btn key" href="https://sub4unlock.io/dECAt">🔑 GET FREE KEY</a>
-    <a class="btn telegram" href="https://t.me/KazeMainChannel">📢 JOIN TELEGRAM</a>
-    <a class="btn tutorial" href="https://t.me/KazeTutorial/33">🎥 WATCH TUTORIAL</a>
+
+<button class="btn key" onclick="toggleKeyMenu()">
+🔑 GET FREE KEY ▼
+</button>
+
+<div class="key-options" id="key-options">
+
+<a class="btn key" href="https://sub4unlock.io/dECAt">
+🎮 CODM INJECTOR
+</a>
+
+<button class="btn tutorial" onclick="scriptMaintenance()">
+📜 CODM SCRIPT
+</button>
+
+</div>
+
+<a class="btn telegram" href="https://t.me/KazeMainChannel">📢 JOIN TELEGRAM</a>
+<a class="btn tutorial" href="https://t.me/KazeTutorial/33">🎥 WATCH TUTORIAL</a>
+
 </div>
 
 <footer>
-    <p class="warning">⚠️ Please report any issues to the owner for quick fixes.</p>
-    <span class="owner" id="open-info">Developer: @KAZEHAYAMODZ</span>
-    
-    <a class="vip-btn-small" href="https://t.me/KAZEHAYAMODZ" target="_blank">⭐ BUY VIP KEY</a>
+<p class="warning">⚠️ Please report any issues to the owner for quick fixes.</p>
+
+<span class="owner" id="open-info">Developer: @KAZEHAYAMODZ</span>
+
+<a class="vip-btn-small" href="https://t.me/KAZEHAYAMODZ" target="_blank">
+⭐ BUY VIP KEY
+</a>
+
 </footer>
 
 </div>
 
 <div class="generator-info" id="info-box">
-    Official free key generator.<br>
-    Key duration: <b style="color:#00ffd5">12 hours</b>.<br><br>
-    You can generate a new key once your current key expires.
-    <button class="close-info" id="close-info">CLOSE</button>
+Official free key generator.<br>
+Key duration: <b style="color:#00ffd5">12 hours</b>.<br><br>
+You can generate a new key once your current key expires.
+<button class="close-info" id="close-info">CLOSE</button>
 </div>
 
 <script>
-// Anti-back logic
+
+/* ANTI BACK */
 history.pushState(null,null,location.href);
 history.pushState(null,null,location.href);
-window.onpopstate=function(){ history.go(1); };
+window.onpopstate=function(){history.go(1);};
 
-// Overlay logic
-const openBtn = document.getElementById('open-info');
-const closeBtn = document.getElementById('close-info');
-const infoBox = document.getElementById('info-box');
+/* OVERLAY */
 
-openBtn.onclick = () => infoBox.classList.add('active');
-closeBtn.onclick = () => infoBox.classList.remove('active');
+const openBtn=document.getElementById('open-info');
+const closeBtn=document.getElementById('close-info');
+const infoBox=document.getElementById('info-box');
+
+openBtn.onclick=()=>infoBox.classList.add('active');
+closeBtn.onclick=()=>infoBox.classList.remove('active');
+
+/* KEY MENU */
+
+function toggleKeyMenu(){
+
+let menu=document.getElementById("key-options");
+
+if(menu.style.display==="block"){
+menu.style.display="none";
+}else{
+menu.style.display="block";
+}
+
+}
+
+/* SCRIPT MAINTENANCE */
+
+function scriptMaintenance(){
+
+alert(
+"⚠️ CODM SCRIPT KEY SYSTEM\n\n" +
+"Currently under maintenance.\n\n" +
+"Free key coming soon!"
+);
+
+}
+
 </script>
 
 </body>
