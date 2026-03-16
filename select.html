@@ -3,73 +3,75 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KAZEHAYAMODZ | Select Product</title>
+<title>KAZEHAYAMODZ SELECTOR</title>
 <style>
 
 body {
-    background: #f0f2f5; /* Light gray para lumutang yung white card */
+    background: #0b0f16; /* Dark background para lumutang yung red neon */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
+    flex-direction: column; /* Vertical alignment */
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
 }
 
-/* The spinning red border container */
-.neon-wrapper {
+/* BOX 1: BRAND HEADER WITH ROTATING RED BORDER */
+.brand-box {
     position: relative;
     width: 350px;
-    padding: 5px; /* Kapal ng spinning border */
-    border-radius: 20px;
+    padding: 3px; /* Kapal ng spinning border */
+    border-radius: 15px;
     overflow: hidden;
+    margin-bottom: 20px; /* Space sa pagitan ng dalawang box */
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #ccc; /* Fallback color */
+    background: #111;
 }
 
-/* Red spinning animation */
-.neon-wrapper::before {
-    content: '';
+.brand-box::before {
+    content: "";
     position: absolute;
-    width: 150%;
-    height: 400%;
-    background: conic-gradient(#ff0000, transparent, transparent, #ff0000);
-    animation: rotate 3s linear infinite;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(transparent, transparent, transparent, #ff0000);
+    animation: rotate 1.5s linear infinite;
+    z-index: 0;
 }
 
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-/* The actual white container */
-.container {
+.brand-inner {
     position: relative;
+    z-index: 1;
+    background: #0f1624;
+    width: 100%;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 900;
+    color: white;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+}
+
+/* BOX 2: PRODUCT SELECTOR (WHITE CONTAINER) */
+.container {
     background: white;
     text-align: center;
-    width: 100%;
+    width: 350px;
     padding: 30px 20px;
-    border-radius: 15px;
-    z-index: 1; /* Para nasa ibabaw ng spinning border */
-}
-
-/* Custom Message sa Taas */
-.brand-header {
-    font-size: 14px;
-    font-weight: 800;
-    color: #ff0000;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 5px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 }
 
 h2 {
     margin-top: 0;
     margin-bottom: 20px;
-    font-size: 26px;
+    font-size: 24px;
     color: #333;
+    font-weight: 800;
 }
 
 /* Arrow Button */
@@ -79,6 +81,7 @@ h2 {
     transition: 0.3s;
     user-select: none;
     display: inline-block;
+    color: #333;
 }
 
 .arrow.rotate {
@@ -97,40 +100,52 @@ h2 {
 
 /* Buttons */
 .btn {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     width: 100%;
     padding: 18px;
     margin-bottom: 15px;
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: transform 0.2s, background 0.3s;
 }
 
 .btn:active {
-    transform: scale(0.98);
+    transform: scale(0.95);
 }
 
 .injector {
     background: #00ffd5;
     color: #000;
+    box-shadow: 0 4px 10px rgba(0, 255, 213, 0.3);
 }
 
 .script {
-    background: #e0e0e0;
-    color: #666;
+    background: #ccc;
+    color: #333;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 </style>
 </head>
 <body>
 
-<div class="neon-wrapper">
+    <div class="brand-box">
+        <div class="brand-inner">
+            KAZEHAYAMODZ FREE KEY
+        </div>
+    </div>
+
     <div class="container">
-        <div class="brand-header">KAZEHAYAMODZ FREE KEY</div>
-        
         <h2>Select Product</h2>
         
         <div class="arrow" id="arrow">⬇️</div>
@@ -145,7 +160,6 @@ h2 {
             </button>
         </div>
     </div>
-</div>
 
 <script>
     const arrow = document.getElementById("arrow");
