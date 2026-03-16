@@ -21,10 +21,33 @@ max-width:350px;
 }
 
 h2{
-margin-bottom:30px;
+margin-bottom:20px;
 font-size:26px;
 }
 
+/* Arrow Button */
+.arrow{
+font-size:40px;
+cursor:pointer;
+transition:0.3s;
+user-select:none;
+}
+
+.arrow.rotate{
+transform:rotate(180deg);
+}
+
+/* Hidden Menu */
+.menu{
+margin-top:20px;
+display:none;
+}
+
+.menu.show{
+display:block;
+}
+
+/* Buttons */
 .btn{
 display:block;
 width:100%;
@@ -45,7 +68,7 @@ background:#00ffd5;
 background:#ccc;
 }
 
-</style></head><body><div class="container"><h2>Select Product</h2><button class="btn injector"
+</style></head><body><div class="container"><h2>Select Product</h2><div class="arrow" id="arrow">⬇️</div><div class="menu" id="menu"><button class="btn injector"
 onclick="location.href='https://sub4unlock.io/dECAt'">
 🎮 CODM INJECTOR
 </button>
@@ -55,7 +78,15 @@ onclick="maintenance()">
 📜 CODM SCRIPT
 </button>
 
-</div><script>
+</div></div><script>
+
+const arrow=document.getElementById("arrow");
+const menu=document.getElementById("menu");
+
+arrow.onclick=function(){
+menu.classList.toggle("show");
+arrow.classList.toggle("rotate");
+}
 
 function maintenance(){
 alert("CODM SCRIPT KEY SYSTEM\n\nCurrently under maintenance.\nFree key coming soon!");
