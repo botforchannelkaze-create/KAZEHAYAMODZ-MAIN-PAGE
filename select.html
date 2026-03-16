@@ -1,237 +1,258 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KAZEHAYAMODZ | FREE KEY</title>
-<style>
+<title>KAZEHAYAMODZ | HACKER PANEL</title><style>
 
-/* HACKER VIBE BACKGROUND */
-body {
-    background: #05080a; /* Deep Space Black */
-    background-image: 
-        radial-gradient(circle at 20% 30%, rgba(0, 255, 213, 0.05) 0%, transparent 40%),
-        radial-gradient(circle at 80% 70%, rgba(255, 0, 0, 0.05) 0%, transparent 40%);
-    font-family: 'Courier New', Courier, monospace; /* Hacker font style */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    color: #00ffd5;
+/* GLOBAL */
+
+body{
+background:#05080a;
+background-image:
+radial-gradient(circle at 20% 30%, rgba(0,255,213,0.05), transparent 40%),
+radial-gradient(circle at 80% 70%, rgba(255,0,0,0.05), transparent 40%);
+font-family:Courier New, monospace;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+margin:0;
+color:#00ffd5;
+overflow:hidden;
 }
 
-/* BOX 1: BRAND HEADER (RED NEON SPIN) */
-.brand-box {
-    position: relative;
-    width: 360px;
-    padding: 2px;
-    border-radius: 10px;
-    overflow: hidden;
-    margin-bottom: 25px;
-    background: #111;
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+/* TOP RAINBOW SCAN LINE */
+
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:3px;
+background:linear-gradient(90deg,red,orange,yellow,lime,cyan,blue,magenta,red);
+background-size:400%;
+animation:scan 6s linear infinite;
 }
 
-.brand-box::before {
-    content: "";
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    background: conic-gradient(transparent, transparent, transparent, #ff0000);
-    animation: rotate 1.5s linear infinite;
-    z-index: 0;
+@keyframes scan{
+0%{background-position:0%}
+100%{background-position:400%}
 }
 
-.brand-inner {
-    position: relative;
-    z-index: 1;
-    background: #080808;
-    width: 100%;
-    padding: 15px;
-    border-radius: 8px;
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-    color: white;
-    letter-spacing: 2px;
-    text-shadow: 0 0 8px #ff0000;
+/* BRAND BOX */
+
+.brand-box{
+position:relative;
+width:360px;
+padding:2px;
+border-radius:10px;
+overflow:hidden;
+margin-bottom:25px;
+background:#111;
+box-shadow:0 0 20px rgba(255,0,0,0.3);
 }
 
-/* BOX 2: HACKER SELECTOR (THE "UPGRADED" BOX) */
-.container {
-    position: relative;
-    background: rgba(15, 22, 36, 0.8); /* Transparent blue-black */
-    text-align: center;
-    width: 340px;
-    padding: 30px 20px;
-    border-radius: 15px;
-    border: 1px solid rgba(0, 255, 213, 0.3); /* Cyan border */
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(0, 255, 213, 0.1);
+.brand-box::before{
+content:"";
+position:absolute;
+width:200%;
+height:200%;
+background:conic-gradient(transparent,transparent,transparent,#ff0000);
+animation:rotate 1.5s linear infinite;
 }
 
-/* Glitch effect sa title */
-h2 {
-    margin-top: 0;
-    margin-bottom: 25px;
-    font-size: 22px;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    color: #00ffd5;
-    text-shadow: 2px 2px #000, 0 0 10px rgba(0, 255, 213, 0.5);
+.brand-inner{
+position:relative;
+background:#080808;
+padding:15px;
+border-radius:8px;
+text-align:center;
+font-size:18px;
+font-weight:bold;
+color:white;
+letter-spacing:2px;
+text-shadow:0 0 8px #ff0000;
 }
 
-/* Custom Hacker Arrow */
-.arrow {
-    font-size: 30px;
-    cursor: pointer;
-    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    user-select: none;
-    display: inline-block;
-    color: #00ffd5;
-    padding: 10px;
-    border: 1px dashed #00ffd5;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
+/* CONTAINER */
+
+.container{
+position:relative;
+background:rgba(15,22,36,0.8);
+text-align:center;
+width:340px;
+padding:30px 20px;
+border-radius:15px;
+border:1px solid rgba(0,255,213,0.3);
+backdrop-filter:blur(10px);
+box-shadow:
+0 0 40px rgba(0,0,0,0.8),
+inset 0 0 15px rgba(0,255,213,0.1);
 }
 
-.arrow:hover {
-    box-shadow: 0 0 15px #00ffd5;
-    background: rgba(0, 255, 213, 0.1);
+/* TITLE */
+
+h2{
+margin:0 0 25px;
+font-size:22px;
+letter-spacing:4px;
+text-transform:uppercase;
+color:#00ffd5;
+text-shadow:0 0 10px rgba(0,255,213,0.7);
+animation:glow 2s infinite alternate;
 }
 
-.arrow.rotate {
-    transform: rotate(180deg) scale(0.9);
-    border-style: solid;
-    background: #00ffd5;
-    color: #000;
+@keyframes glow{
+from{ text-shadow:0 0 5px #00ffd5 }
+to{ text-shadow:0 0 15px #00ffd5 }
 }
 
-/* Hidden Menu */
-.menu {
-    margin-top: 25px;
-    display: none;
-    animation: fadeIn 0.5s ease;
+/* ARROW */
+
+.arrow{
+font-size:30px;
+cursor:pointer;
+transition:0.4s;
+display:inline-flex;
+justify-content:center;
+align-items:center;
+width:45px;
+height:45px;
+border-radius:50%;
+border:1px dashed #00ffd5;
+animation:pulse 2s infinite;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+@keyframes pulse{
+0%{box-shadow:0 0 5px #00ffd5}
+50%{box-shadow:0 0 20px #00ffd5}
+100%{box-shadow:0 0 5px #00ffd5}
 }
 
-.menu.show {
-    display: block;
+.arrow:hover{
+background:#00ffd5;
+color:black;
 }
 
-/* HACKER BUTTONS */
-.btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    width: 100%;
-    padding: 15px;
-    margin-bottom: 15px;
-    border: 1px solid rgba(0, 255, 213, 0.5);
-    border-radius: 5px;
-    font-size: 14px;
-    font-weight: bold;
-    text-transform: uppercase;
-    cursor: pointer;
-    background: rgba(0, 0, 0, 0.5);
-    color: #00ffd5;
-    transition: all 0.3s;
-    position: relative;
-    overflow: hidden;
+.arrow.rotate{
+transform:rotate(180deg);
+background:#00ffd5;
+color:black;
 }
 
-/* Button Hover - Scanner Light Effect */
-.btn::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -60%;
-    width: 20%;
-    height: 200%;
-    background: rgba(255, 255, 255, 0.1);
-    transform: rotate(30deg);
-    transition: 0.5s;
+/* MENU */
+
+.menu{
+margin-top:25px;
+display:none;
+animation:fade 0.5s ease;
 }
 
-.btn:hover::after {
-    left: 120%;
+.menu.show{
+display:block;
 }
 
-.btn:hover {
-    background: #00ffd5;
-    color: #000;
-    box-shadow: 0 0 20px rgba(0, 255, 213, 0.6);
+@keyframes fade{
+from{opacity:0; transform:translateY(-10px)}
+to{opacity:1; transform:translateY(0)}
 }
 
-.injector {
-    border-color: #00ffd5;
+/* BUTTONS */
+
+.btn{
+display:flex;
+justify-content:center;
+align-items:center;
+width:100%;
+padding:15px;
+margin-bottom:15px;
+border-radius:6px;
+font-size:14px;
+font-weight:bold;
+text-transform:uppercase;
+cursor:pointer;
+background:rgba(0,0,0,0.6);
+border:1px solid #00ffd5;
+color:#00ffd5;
+transition:0.3s;
+position:relative;
+overflow:hidden;
 }
 
-.script {
-    border-color: #555;
-    color: #555;
+/* SCANNER LIGHT */
+
+.btn::after{
+content:'';
+position:absolute;
+top:-50%;
+left:-60%;
+width:20%;
+height:200%;
+background:rgba(255,255,255,0.15);
+transform:rotate(30deg);
+transition:0.5s;
 }
 
-.script:hover {
-    border-color: #ff4444;
-    color: #fff;
-    background: #ff4444;
-    box-shadow: 0 0 20px rgba(255, 68, 68, 0.6);
+.btn:hover::after{
+left:120%;
 }
 
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+.btn:hover{
+background:#00ffd5;
+color:black;
+box-shadow:0 0 20px rgba(0,255,213,0.8);
 }
 
-</style>
-</head>
-<body>
+/* SCRIPT BUTTON */
 
-    <div class="brand-box">
-        <div class="brand-inner">
-            KAZEHAYAMODZ FREE KEY
-        </div>
-    </div>
+.script{
+border-color:#555;
+color:#555;
+}
 
-    <div class="container">
-        <h2>System_Select</h2>
-        
-        <div class="arrow" id="arrow">V</div>
+.script:hover{
+background:#ff4444;
+color:white;
+border-color:#ff4444;
+box-shadow:0 0 20px rgba(255,0,0,0.8);
+}
 
-        <div class="menu" id="menu">
-            <button class="btn injector" onclick="location.href='https://sub4unlock.io/dECAt'">
-                [ RUN_INJECTOR ]
-            </button>
+/* ROTATE */
 
-            <button class="btn script" onclick="maintenance()">
-                [ LOAD_SCRIPT ]
-            </button>
-        </div>
-    </div>
+@keyframes rotate{
+from{transform:rotate(0deg)}
+to{transform:rotate(360deg)}
+}
 
-<script>
-    const arrow = document.getElementById("arrow");
-    const menu = document.getElementById("menu");
+</style></head><body><div class="brand-box">
+<div class="brand-inner">
+KAZEHAYAMODZ FREE KEY
+</div>
+</div><div class="container"><h2>SYSTEM_SELECT</h2><div class="arrow" id="arrow">⌄</div><div class="menu" id="menu"><button class="btn injector"
+onclick="location.href='https://sub4unlock.io/dECAt'">
+RUN CODM INJECTOR
+</button>
 
-    arrow.onclick = function() {
-        menu.classList.toggle("show");
-        arrow.classList.toggle("rotate");
-    }
+<button class="btn script"
+onclick="maintenance()">
+LOAD CODM SCRIPT
+</button>
 
-    function maintenance() {
-        alert("CRITICAL ERROR: SCRIPT_UNDER_MAINTENANCE\n\nAccess Denied. Try again later.");
-    }
-</script>
+</div></div><script>
 
-</body>
+const arrow=document.getElementById("arrow");
+const menu=document.getElementById("menu");
+
+arrow.onclick=function(){
+menu.classList.toggle("show");
+arrow.classList.toggle("rotate");
+}
+
+function maintenance(){
+alert("SYSTEM MESSAGE:\n\nCODM SCRIPT IS CURRENTLY UNDER MAINTENANCE.\n\nPlease try again later.");
+}
+
+</script></body>
 </html>
