@@ -4,30 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KAZEHAYAMODZ | PREMIUM PANEL</title>
-<style>
 
-/* ===== CONFIGURATION (DITO MO I-ADJUST ANG LAKI) ===== */
+<style>
 :root {
-    --panel-width: 280px;      /* LAPAD NG BOX */
-    --brand-top-space: 40px;   /* TAAS NG BRAND BOX MULA SA PINAKATAAS */
-    --gap-between: 25px;       /* DISTANSYA NG DALAWANG BOX */
+    --panel-width: 280px;
+    --brand-top-space: 40px;
+    --gap-between: 25px;
 }
 
-/* ===== BASE STYLES ===== */
 body {
     background: #05070a;
     font-family: 'Segoe UI', system-ui, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Para ma-control ang taas mula sa itaas */
+    justify-content: flex-start;
     padding-top: var(--brand-top-space);
     min-height: 100vh;
     margin: 0;
     color: #e0e0e0;
 }
 
-/* Background Glow Effect */
 body::before {
     content: "";
     position: fixed;
@@ -39,7 +36,6 @@ body::before {
     z-index: -1;
 }
 
-/* ===== BRAND BOX (BOX 1 - NASA ITAAS) ===== */
 .brand-box {
     position: relative;
     width: var(--panel-width);
@@ -47,8 +43,7 @@ body::before {
     border-radius: 8px;
     overflow: hidden;
     background: #111;
-    margin-bottom: var(--gap-between); /* Distansya sa box sa baba */
-    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.1);
+    margin-bottom: var(--gap-between);
 }
 
 .brand-box::before {
@@ -71,18 +66,14 @@ body::before {
     font-weight: 800;
     letter-spacing: 2px;
     color: #fff;
-    text-shadow: 0 0 5px rgba(255, 68, 68, 0.5);
 }
 
-/* ===== ACCESS PANEL (BOX 2 - NASA BABA) ===== */
 .container {
     background: #0d1117;
     text-align: center;
     width: var(--panel-width);
     padding: 25px 20px;
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.03);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
 }
 
 h2 {
@@ -91,125 +82,62 @@ h2 {
     letter-spacing: 3px;
     text-transform: uppercase;
     color: #00ffd5;
-    opacity: 0.6;
 }
 
-/* Tutorial Design */
 .tuts {
     font-size: 9px;
     line-height: 1.6;
     margin-bottom: 20px;
     color: #777;
-    background: rgba(255, 255, 255, 0.01);
     padding: 12px;
-    border-radius: 6px;
-    text-align: left;
     border-left: 2px solid #00ffd5;
 }
 
-.tuts b { color: #00ffd5; margin-right: 5px; }
-
-/* Minimalist Toggle Arrow */
 .arrow {
     font-size: 18px;
     cursor: pointer;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
     width: 36px; height: 36px;
     border-radius: 50%;
-    background: rgba(0, 255, 213, 0.03);
-    border: 1px solid rgba(0, 255, 213, 0.15);
-    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    color: #00ffd5;
+    background: rgba(0,255,213,0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.arrow:hover {
-    background: #00ffd5;
-    color: #000;
-}
-
-.arrow.rotate { transform: rotate(180deg); }
-
-/* Menu Reveal */
 .menu {
     margin-top: 20px;
     display: none;
-    animation: slideUp 0.3s ease-out;
 }
 
-@keyframes slideUp {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.menu.show { display: block; }
-
-/* Action Buttons */
-.btn {
+.menu.show {
     display: block;
+}
+
+.btn {
     width: 100%;
     padding: 12px;
     margin-bottom: 10px;
     border-radius: 6px;
     font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
+    font-weight: bold;
     cursor: pointer;
     background: #00ffd5;
     border: none;
-    color: #000;
-    transition: 0.2s;
-    letter-spacing: 1px;
-}
-
-.btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 255, 213, 0.25);
 }
 
 .script {
     background: transparent;
     border: 1px solid #222;
-    color: #555;
-}
-
-.script:hover {
-    border-color: #ff4444;
-    color: #ff4444;
-    background: rgba(255, 68, 68, 0.02);
-}
-
-/* Fullscreen Maintenance */
-.maintenance-box {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(5, 7, 10, 0.98);
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.maintenance-box.show { display: flex; }
-
-.m-text {
-    font-size: 16px;
-    font-weight: 900;
-    color: #ff4444;
-    letter-spacing: 4px;
-    text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+    color: #999;
 }
 
 @keyframes rotate {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
-
 </style>
 </head>
+
 <body>
 
 <div class="brand-box">
@@ -218,44 +146,37 @@ h2 {
 
 <div class="container">
     <h2>SYSTEM DASHBOARD</h2>
-    
+
     <div class="tuts">
-        <b>01</b> PRESS THE ARROW BELOW<br>
-        <b>02</b> SELECT YOUR KEY TYPE<br>
-        <b>03</b> COMPLETED INJECTION
+        <b>01</b> PRESS THE ARROW<br>
+        <b>02</b> SELECT KEY<br>
+        <b>03</b> DONE
     </div>
 
     <div class="arrow" id="arrow">⌄</div>
 
     <div class="menu" id="menu">
-        <button class="btn" onclick="location.href='https://sub4unlock.io/dECAt'">
+        
+        <!-- INJECTOR -->
+        <button class="btn" onclick="window.open('https://sub4unlock.io/dECAt','_blank')">
             GET FREE KEY INJECTOR
         </button>
 
-        <button class="btn script" onclick="showMaintenance()">
+        <!-- SCRIPT -->
+        <button class="btn script" onclick="window.open('https://sub4unlock.io/UTqol','_blank')">
             GET FREE KEY SCRIPT
         </button>
+
     </div>
 </div>
 
-<div class="maintenance-box" id="maintenance" onclick="this.classList.remove('show')">
-    <div class="m-text">⚠️ MAINTENANCE</div>
-    <div style="font-size: 8px; color: #333; margin-top: 15px; letter-spacing: 1px;">TAP ANYWHERE TO RETURN</div>
-</div>
-
 <script>
-    const arrow = document.getElementById("arrow");
-    const menu = document.getElementById("menu");
-    const maintenance = document.getElementById("maintenance");
+const arrow = document.getElementById("arrow");
+const menu = document.getElementById("menu");
 
-    arrow.onclick = function() {
-        menu.classList.toggle("show");
-        arrow.classList.toggle("rotate");
-    }
-
-    function showMaintenance() {
-        maintenance.classList.add("show");
-    }
+arrow.onclick = function() {
+    menu.classList.toggle("show");
+}
 </script>
 
 </body>
