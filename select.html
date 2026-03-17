@@ -3,50 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KAZEHAYAMODZ | PANEL</title>
+<title>KAZEHAYAMODZ | PREMIUM PANEL</title>
 <style>
 
-/* ===== CLEAN CYBER DARK THEME ===== */
+/* ===== CONFIGURATION (DITO MO I-ADJUST ANG LAKI) ===== */
+:root {
+    --panel-width: 280px;      /* LAPAD NG BOX */
+    --brand-top-space: 40px;   /* TAAS NG BRAND BOX MULA SA PINAKATAAS */
+    --gap-between: 25px;       /* DISTANSYA NG DALAWANG BOX */
+}
+
+/* ===== BASE STYLES ===== */
 body {
     background: #05070a;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Segoe UI', system-ui, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; /* Para ma-control ang taas mula sa itaas */
+    padding-top: var(--brand-top-space);
     min-height: 100vh;
     margin: 0;
     color: #e0e0e0;
 }
 
-/* Background Subtle Glow */
+/* Background Glow Effect */
 body::before {
     content: "";
     position: fixed;
     top: 50%; left: 50%;
     width: 300px; height: 300px;
-    background: rgba(0, 255, 213, 0.05);
-    filter: blur(100px);
+    background: rgba(0, 255, 213, 0.03);
+    filter: blur(80px);
     transform: translate(-50%, -50%);
     z-index: -1;
 }
 
-/* ===== SLIM BRAND BOX (BOX 1) ===== */
+/* ===== BRAND BOX (BOX 1 - NASA ITAAS) ===== */
 .brand-box {
     position: relative;
-    width: 300px; /* Slimmer */
+    width: var(--panel-width);
     padding: 1.5px;
     border-radius: 8px;
     overflow: hidden;
     background: #111;
-    margin-bottom: 12px;
+    margin-bottom: var(--gap-between); /* Distansya sa box sa baba */
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.1);
 }
 
 .brand-box::before {
     content: "";
     position: absolute;
-    top: -100%; left: -100%;
-    width: 200%; height: 300%;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
     background: conic-gradient(transparent, transparent, transparent, #ff4444);
     animation: rotate 2.5s linear infinite;
 }
@@ -55,61 +64,63 @@ body::before {
     position: relative;
     z-index: 1;
     background: #0a0a0a;
-    padding: 12px;
+    padding: 14px;
     border-radius: 7px;
     text-align: center;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 800;
     letter-spacing: 2px;
     color: #fff;
     text-shadow: 0 0 5px rgba(255, 68, 68, 0.5);
 }
 
-/* ===== COMPACT PANEL (BOX 2) ===== */
+/* ===== ACCESS PANEL (BOX 2 - NASA BABA) ===== */
 .container {
     background: #0d1117;
     text-align: center;
-    width: 300px; /* Fixed Slim Width */
-    padding: 30px 35px;
+    width: var(--panel-width);
+    padding: 25px 20px;
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
 }
 
 h2 {
     margin: 0 0 15px;
-    font-size: 11px;
-    letter-spacing: 4px;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
     color: #00ffd5;
-    opacity: 0.8;
+    opacity: 0.6;
 }
 
-/* Tutorial Text - Cleaner */
+/* Tutorial Design */
 .tuts {
-    font-size: 10px;
+    font-size: 9px;
     line-height: 1.6;
     margin-bottom: 20px;
-    color: #888;
-    background: rgba(255, 255, 255, 0.02);
-    padding: 10px;
+    color: #777;
+    background: rgba(255, 255, 255, 0.01);
+    padding: 12px;
     border-radius: 6px;
     text-align: left;
+    border-left: 2px solid #00ffd5;
 }
 
-.tuts b { color: #00ffd5; }
+.tuts b { color: #00ffd5; margin-right: 5px; }
 
-/* Minimalist Arrow */
+/* Minimalist Toggle Arrow */
 .arrow {
     font-size: 18px;
     cursor: pointer;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 38px; height: 38px;
+    width: 36px; height: 36px;
     border-radius: 50%;
-    background: rgba(0, 255, 213, 0.05);
-    border: 1px solid rgba(0, 255, 213, 0.2);
-    transition: 0.3s;
+    background: rgba(0, 255, 213, 0.03);
+    border: 1px solid rgba(0, 255, 213, 0.15);
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     color: #00ffd5;
 }
 
@@ -118,32 +129,30 @@ h2 {
     color: #000;
 }
 
-.arrow.rotate {
-    transform: rotate(180deg);
-}
+.arrow.rotate { transform: rotate(180deg); }
 
-/* Menu Slide */
+/* Menu Reveal */
 .menu {
     margin-top: 20px;
     display: none;
-    animation: fadeIn 0.3s ease;
+    animation: slideUp 0.3s ease-out;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-5px); }
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 .menu.show { display: block; }
 
-/* Premium Buttons */
+/* Action Buttons */
 .btn {
     display: block;
     width: 100%;
     padding: 12px;
     margin-bottom: 10px;
     border-radius: 6px;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 700;
     text-transform: uppercase;
     cursor: pointer;
@@ -156,22 +165,22 @@ h2 {
 
 .btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 255, 213, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 255, 213, 0.25);
 }
 
 .script {
     background: transparent;
-    border: 1px solid #333;
-    color: #666;
+    border: 1px solid #222;
+    color: #555;
 }
 
 .script:hover {
     border-color: #ff4444;
     color: #ff4444;
-    background: rgba(255, 68, 68, 0.05);
+    background: rgba(255, 68, 68, 0.02);
 }
 
-/* Minimalist Maintenance */
+/* Fullscreen Maintenance */
 .maintenance-box {
     position: fixed;
     top: 0; left: 0;
@@ -181,16 +190,17 @@ h2 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 100;
+    z-index: 1000;
 }
 
 .maintenance-box.show { display: flex; }
 
 .m-text {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 900;
     color: #ff4444;
-    letter-spacing: 5px;
+    letter-spacing: 4px;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
 }
 
 @keyframes rotate {
@@ -207,12 +217,12 @@ h2 {
 </div>
 
 <div class="container">
-    <h2>DASHBOARD</h2>
+    <h2>SYSTEM DASHBOARD</h2>
     
     <div class="tuts">
-        <b>01</b> TAP THE ARROW BELOW<br>
-        <b>02</b> CHOOSE YOUR PRODUCT<br>
-        <b>03</b> WAIT FOR INJECTION
+        <b>01</b> PRESS THE ARROW BELOW<br>
+        <b>02</b> SELECT YOUR KEY TYPE<br>
+        <b>03</b> COMPLETED INJECTION
     </div>
 
     <div class="arrow" id="arrow">⌄</div>
@@ -229,8 +239,8 @@ h2 {
 </div>
 
 <div class="maintenance-box" id="maintenance" onclick="this.classList.remove('show')">
-    <div class="m-text">⚠️MAINTENANCE</div>
-    <div style="font-size: 9px; color: #444; margin-top: 10px;">TAP TO RETURN</div>
+    <div class="m-text">⚠️ SYSTEM OFFLINE</div>
+    <div style="font-size: 8px; color: #333; margin-top: 15px; letter-spacing: 1px;">TAP ANYWHERE TO RETURN</div>
 </div>
 
 <script>
